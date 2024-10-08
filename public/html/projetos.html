@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Projetos</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Gerenciamento de Projetos</h1>
+    
+    <div class="container">
+        <div class="section">
+            <!-- Formulário de criação de projeto -->
+            <form id="form-projeto">
+                <h2>Criar Novo Projeto</h2>
+                <input type="text" id="nome-projeto" placeholder="Nome do projeto" required>
+                <textarea id="descricao-projeto" placeholder="Descrição do projeto" required></textarea>
+                <input type="date" id="data-criacao" required>
+                <button id="btn-criar" type="submit">Criar Projeto</button>
+            </form>
+            
+            <!-- Tabela para listar os projetos -->
+            <h3>Lista de Projetos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Data de Criação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-projetos">
+                    <!-- Dados da tabela preenchidos dinamicamente pelo JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Botões de navegação -->
+            <div class="button-container">
+                <a href="/html/tarefas.html" class="button-link">Ir para Tarefas</a>
+                <a href="/html/index.html" class="button-link">Voltar ao menu</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/projetos.js"></script>
+</body>
+</html>
