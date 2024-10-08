@@ -29,7 +29,27 @@ Antes de começar, você vai precisar ter as seguintes ferramentas instaladas em
 
 1. Instale o PostgreSQL em sua máquina.
 2. Crie um banco de dados para a aplicação, por exemplo: `mybd`.
-3. Atualize a variável `CONNECTION_STRING` no arquivo `.env` para refletir a conexão do PostgreSQL. Exemplo:
+3. Para o correto funcionamento do sistema, é necessário criar as seguintes tabelas no banco de dados PostgreSQL:
+   
+Tabela projetos
+```Tabela projetos
+CREATE TABLE projetos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  descricao TEXT,
+  data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+Tabela tarefas
+```Tabela tarefas
+CREATE TABLE tarefas (
+  id SERIAL PRIMARY KEY,
+  id_projeto INTEGER REFERENCES projetos(id) ON DELETE CASCADE,
+  nome VARCHAR(255) NOT NULL,
+  descricao TEXT
+);
+```
+4. Atualize a variável `CONNECTION_STRING` no arquivo `.env` para refletir a conexão do PostgreSQL. Exemplo:
 
 ```bash
 CONNECTION_STRING=postgres://username:password@localhost:5433/mybd
@@ -40,7 +60,7 @@ PORT=3000
 
 1. Clone este repositório em sua máquina local.
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/LeoGravina/Desafio-Te-cnico-Sistema-de-Gerenciamento-de-Projetos-e-Tarefas.git
    ```
 
 2. Entre na pasta do projeto.
